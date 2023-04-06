@@ -1,0 +1,16 @@
+Strive Blog API
+
+Completa tutti i compiti della scorsa settimana (inclusi gli extra 😜) e fai un deploy sul cloud.
+
+CLOUD
+Vogliamo rendere le applicazioni production-ready e disponibili per un grande numero di utenti 🚗⚡
+
+Effettua un deploy di tutte le applicazioni su HEROKU e VERCEL, con CLOUDINARY come CDN.
+
+⚠️ Se riscontrate dei problemi con HEROKU ricordatevi di configurare lo start script nel package.json
+
+⚠️ ⚠️ Ricorda di usare le variabili d’ambiente, sia in locale che in remoto
+
+⚠️ ⚠️ ⚠️ Configura CORS in modo da far dialogare correttamente il FE con il BE
+
+⚠️ ⚠️ ⚠️⚠️ Impostare CI=false come variabile d’ambiente su Vercel permetterà il build di applicazioni React anche in caso di warnings all’interno del codice
