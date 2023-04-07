@@ -1,3 +1,4 @@
+const multer = require('multer');
 const cloudStorage = require('../middleware/cloudStorage');
 const cloudMulter = multer({ 
     storage: cloudStorage,
