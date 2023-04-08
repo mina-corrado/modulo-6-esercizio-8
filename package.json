@@ -2,6 +2,9 @@
   "name": "strive-blog-template",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "@testing-library/jest-dom": "^5.11.4",
