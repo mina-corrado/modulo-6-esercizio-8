@@ -4,6 +4,10 @@
     "buildCommand": "yarn build",
     "outputDirectory": "dist",
     "builds": [
+        {
+            "src": "package.json",
+            "use": "vercel-sapper"
+        },
         { "src": "./api/index.js", "use": "@vercel/node" }
      ],
     "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
