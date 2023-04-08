@@ -50,7 +50,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: path.join(__dirname, 'api/var/db') })
+  store: new SQLiteStore({ db: 'sessions.db', dir: path.join(__dirname, './var/db') })
 }));
 app.use(passport.authenticate('session'));
 
