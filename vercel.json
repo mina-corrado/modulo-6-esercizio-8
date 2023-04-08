@@ -1,6 +1,7 @@
 {
-    "installCommand": "npm i --legacy-peer-deps",
-    "buildCommand": "npm run build",
+    "version": 2,
+    "installCommand": "yarn i",
+    "buildCommand": "yarn build",
     "outputDirectory": "dist",
     "builds": [
         { "src": "./api/index.js", "use": "@vercel/node" }
