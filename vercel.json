@@ -1,10 +1,8 @@
 {
+    "public": false,
     "builds": [
-        {
-            "src": "package.json",
-            "use": "vercel-sapper"
-        },
-        { "src": "./api/index.js", "use": "@vercel/node" }
-     ],
+        { "src": "package.json", "use": "@now/static-build" },
+        { "src": "/api/index.js", "use": "@now/node-server" }
+    ],
     "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }
