@@ -56,7 +56,7 @@ app.get('/favicon.ico', (req, res) => {
 
 const start = async() => {
     try {
-        await mongoose.connect('mongodb+srv://minacorrado:SW14D3KwA2WilPUH@cluster0.oopravd.mongodb.net/Epicode');
+        await mongoose.connect(process.env.MONGO);
         app.use(session({
             secret: 'keyboard cat',
             resave: false,
