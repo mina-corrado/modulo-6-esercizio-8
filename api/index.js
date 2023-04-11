@@ -41,7 +41,7 @@ const unless = (middleware, ...paths) => {
 
 app.use(logger);
 app.use(errorHandler);
-app.use(unless( auth, '/', '/manifest.json', '/login', '/api/login','/api/oauth/google', '/api/oauth/redirect/google', '/api/blogPosts', '/favicon.ico' ));
+app.use(unless( auth, '/', '/manifest.json', '/login', '/api/login','/api/oauth/google', '/api/oauth/redirect/google', '/favicon.ico' ));
 
 app.use(routesBlogPost);
 app.use(routesAutore);
