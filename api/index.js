@@ -46,7 +46,9 @@ app.use(routesAutore);
 app.use(routesComment);
 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+//When you navigate to the root page, it would use the built react-app
+app.use(express.static(path.resolve(__dirname, "../dist")));
 
 app.get('/favicon.ico', (req, res) => {
     res.sendFile("./public/favicon.ico");
