@@ -31,6 +31,8 @@ const unless = (middleware, ...paths) => {
     return (req, res, next) => {
         // console.log("req => ",req)
         const pathCheck = paths.some(path => {
+            if (path.startsWith('^'))
+                return req.path.startsWith(path.replace('^',''));
             return path === req.path || path.concat('/') === req.path;
         });
         pathCheck ? next() : middleware(req, res, next);
@@ -39,7 +41,7 @@ const unless = (middleware, ...paths) => {
 
 app.use(logger);
 app.use(errorHandler);
-app.use(unless( auth, '/', '/static', '/static/css', '/static/js', '/login','/oauth/google', '/oauth/redirect/google', '/favicon.ico' ));
+app.use(unless( auth, '/', '^/static', '/login','/oauth/google', '/oauth/redirect/google', '/favicon.ico' ));
 
 app.use(routesBlogPost);
 app.use(routesAutore);
