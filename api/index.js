@@ -9,7 +9,8 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const url = require('url');
 
-const SQLiteStore = require('connect-sqlite3')(session);
+// const SQLiteStore = require('connect-sqlite3')(session);
+const MongoStore = require('connect-mongo');
 
 //routes
 const routesBlogPost = require('./routes/routes-blogpost');
@@ -46,16 +47,6 @@ app.use(routesComment);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-console.log("***PATH ", path.join(__dirname, './var/db') );
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: path.join(__dirname, './var/db') })
-}));
-app.use(passport.authenticate('session'));
-
-app.use(routesOauth);
 
 app.get('/favicon.ico', (req, res) => {
     res.sendFile("./public/favicon.ico");
@@ -63,7 +54,19 @@ app.get('/favicon.ico', (req, res) => {
 
 const start = async() => {
     try {
-        await mongoose.connect('mongodb+srv://minacorrado:SW14D3KwA2WilPUH@cluster0.oopravd.mongodb.net/Epicode')
+        await mongoose.connect('mongodb+srv://minacorrado:SW14D3KwA2WilPUH@cluster0.oopravd.mongodb.net/Epicode');
+        app.use(session({
+            secret: 'keyboard cat',
+            resave: false,
+            saveUninitialized: false,
+            store: MongoStore.create({
+                client: mongoose.connection.getClient()
+            })
+          }));
+        app.use(passport.authenticate('session'));
+          
+        app.use(routesOauth);
+
         app.listen(process.env.PORT, () => {
             console.log("listening on port 3000")
         });    
