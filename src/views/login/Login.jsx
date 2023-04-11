@@ -66,7 +66,7 @@ const Login = props => {
                 </Form.Group>
             </Form>
             <hr />
-            <Button as={Link} to="http://localhost:3000/oauth/google"
+            <Button as={Link} to="/oauth/google"
                     size="lg"
                     variant="dark"
                     style={{
