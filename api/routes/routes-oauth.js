@@ -57,7 +57,7 @@ passport.deserializeUser(function(user, cb) {
 
 router.get('/oauth/google', passport.authenticate('google'));
 router.get('/oauth/redirect/google', 
-    passport.authenticate('google', {failureRedirect: 'http://localhost:3001/login'}), (req, res) => {
+    passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
         // console.log('Res *****************', res);
         const author = req.user;
         console.log('Author mail ', author.email);
@@ -67,7 +67,7 @@ router.get('/oauth/redirect/google',
             email: author.email,
             isAdmin: author.isAdmin,
         }, jwt_secret);
-        res.status(200).redirect(`http://localhost:3001/validateToken/${token}`);
+        res.status(200).redirect(`/validateToken/${token}`);
 });
 
 
