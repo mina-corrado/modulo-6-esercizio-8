@@ -46,6 +46,7 @@ app.use(routesComment);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log("***PATH ", path.join(__dirname, './var/db') );
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
