@@ -9,7 +9,7 @@ const cloudMulter = require('../middleware/cloudMulter');
 
 const sendMail = require('../middleware/email');
 
-router.get('/blogPosts', async (req, res, next) => {
+router.get('/api/blogPosts', async (req, res, next) => {
     const {page = '1', size = '4'} = req.query;
     const result = await BlogPost.find()
             .populate("author")
@@ -19,7 +19,7 @@ router.get('/blogPosts', async (req, res, next) => {
     return res.json({count, results: result});
 });
 
-router.get('/blogPosts/:id', async (req, res, next) => {
+router.get('/api/blogPosts/:id', async (req, res, next) => {
     const {id} = req.params;
     try {
         const result = await BlogPost.findById(id).populate('comments', 'author');
@@ -29,7 +29,7 @@ router.get('/blogPosts/:id', async (req, res, next) => {
     }
 });
 
-router.patch('/blogPosts/:id/cover', cloudMulter.single('cover'), async (req, res, next) => {
+router.patch('/api/blogPosts/:id/cover', cloudMulter.single('cover'), async (req, res, next) => {
     const {id} = req.params;
     try {
         // console.log(req.file);
@@ -45,7 +45,7 @@ router.patch('/blogPosts/:id/cover', cloudMulter.single('cover'), async (req, re
     }
 });
 
-router.post('/blogPosts', async (req, res, next) => {
+router.post('/api/blogPosts', async (req, res, next) => {
     const body = req.body;
     console.log(`body is `, body)
     try {
@@ -86,7 +86,7 @@ router.post('/blogPosts', async (req, res, next) => {
     }
 });
 
-router.put('/blogPosts/:id', async (req, res, next) => {
+router.put('/api/blogPosts/:id', async (req, res, next) => {
     const {id} = req.params;
     try {
         const body = req.body;
@@ -113,7 +113,7 @@ router.put('/blogPosts/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/blogPosts/:id', async (req, res, next) => {
+router.delete('/api/blogPosts/:id', async (req, res, next) => {
     const {id} = req.params;
     try {
         const userRequestId = req.body.id;

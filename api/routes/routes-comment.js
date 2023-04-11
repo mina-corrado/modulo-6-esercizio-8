@@ -11,7 +11,7 @@ const router = express.Router();
 const Comment = require('../models/Comment');
 const BlogPost = require('../models/BlogPost');
 
-router.get('/blogPosts/:id/comments', async (req, res, next) => {
+router.get('/api/blogPosts/:id/comments', async (req, res, next) => {
     const {id} = req.params;
     try {
         const result = await BlogPost.findById(id).populate("comments");
@@ -21,7 +21,7 @@ router.get('/blogPosts/:id/comments', async (req, res, next) => {
     }
 });
 
-router.get('/blogPosts/:id/comments/:commentId', async (req, res, next) => {
+router.get('/api/blogPosts/:id/comments/:commentId', async (req, res, next) => {
     const {id, commentId} = req.params;
     console.log("id commid ", id, commentId);
     try {
@@ -34,7 +34,7 @@ router.get('/blogPosts/:id/comments/:commentId', async (req, res, next) => {
     }
 });
 
-router.post('/blogPosts/:id/comments', async (req, res, next) => {
+router.post('/api/blogPosts/:id/comments', async (req, res, next) => {
     const {id} = req.params;
     const body = req.body;
     try {
@@ -55,7 +55,7 @@ router.post('/blogPosts/:id/comments', async (req, res, next) => {
     }
 });
 
-router.put('/blogPosts/:id/comments/:commentId', async (req, res, next) => {
+router.put('/api/blogPosts/:id/comments/:commentId', async (req, res, next) => {
     const {id, commentId} = req.params;
 
     console.log("id commid ", id, commentId);
@@ -83,7 +83,7 @@ router.put('/blogPosts/:id/comments/:commentId', async (req, res, next) => {
     }
 });
 
-router.delete('/blogPosts/:id/comments/:commentId', async (req, res, next) => {
+router.delete('/api/blogPosts/:id/comments/:commentId', async (req, res, next) => {
     const {id, commentId} = req.params;
     try {
         const userRequestId = req.body.id;

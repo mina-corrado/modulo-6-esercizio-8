@@ -55,8 +55,8 @@ passport.deserializeUser(function(user, cb) {
     });
 });
 
-router.get('/oauth/google', passport.authenticate('google'));
-router.get('/oauth/redirect/google', 
+router.get('/api/oauth/google', passport.authenticate('google'));
+router.get('/api/oauth/redirect/google', 
     passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
         // console.log('Res *****************', res);
         const author = req.user;

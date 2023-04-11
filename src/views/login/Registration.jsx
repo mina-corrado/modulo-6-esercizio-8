@@ -41,7 +41,7 @@ const Registration = props => {
             method: 'POST',
             body: JSON.stringify(data)
         }
-        fetch('http://localhost:3000/authors', headers).then(res=>res.json())
+        fetch('/api/authors', headers).then(res=>res.json())
         .then(res=>{
             // reset
             form.querySelector('#registration-form-nome').value = '';

@@ -18,7 +18,7 @@ const BlogList = props => {
         "Authorization": `Bearer ${token}`,
         },
     }
-    fetch(`http://localhost:3000/blogPosts?page=${page}&size=${props.size}`, headers).then(res=>res.json())
+    fetch(`/api/blogPosts?page=${page}&size=${props.size}`, headers).then(res=>res.json())
     .then(res=>{
       // successo
       setCount(res.count)

@@ -35,7 +35,7 @@ const NewBlogPost = props => {
         body: JSON.stringify(data)
     }
 
-    fetch('http://localhost:3000/blogPosts', headers).then(res=>res.json())
+    fetch('/api/blogPosts', headers).then(res=>res.json())
     .then(res=>{
       // reset
       form.querySelector('#blog-form').value = '';

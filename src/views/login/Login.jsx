@@ -26,7 +26,7 @@ const Login = props => {
             method: 'POST',
             body: JSON.stringify(data)
         }
-        fetch('http://localhost:3000/login', headers).then(res=>res.json())
+        fetch('/api/login', headers).then(res=>res.json())
         .then(res=>{
             // reset
             form.querySelector('#login-form-username').value = '';
@@ -66,7 +66,7 @@ const Login = props => {
                 </Form.Group>
             </Form>
             <hr />
-            <Button as={Link} to="/oauth/google"
+            <Button as={Link} to="/api/oauth/google"
                     size="lg"
                     variant="dark"
                     style={{

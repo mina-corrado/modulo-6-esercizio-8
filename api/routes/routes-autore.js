@@ -10,7 +10,7 @@ const cloudMulter = require('../middleware/cloudMulter');
 const sendMail = require('../middleware/email');
 const jwt_secret = process.env.JWT_SECRET;
 
-router.get('/authors', async (req, res, next) => {
+router.get('/api/authors', async (req, res, next) => {
     const userRequestId = req.body.id;
     const userRequestBy = await Author.findById(userRequestId);
     console.log("get authors ", userRequestBy);
@@ -28,7 +28,7 @@ router.get('/authors', async (req, res, next) => {
         next(err)
     }
 });
-router.get('/authors/:id', async (req, res, next) => {
+router.get('/api/authors/:id', async (req, res, next) => {
     console.log("get authors/:id ");
     const {id} = req.params;
     const userRequestId = req.body.id;
@@ -45,7 +45,7 @@ router.get('/authors/:id', async (req, res, next) => {
     }
     
 });
-router.patch('/authors/:id/avatar', cloudMulter.single('avatar'), async (req, res) => {
+router.patch('/api/authors/:id/avatar', cloudMulter.single('avatar'), async (req, res) => {
     console.log("patch authors/:id/avatar ");
     const {id} = req.params;
     const userRequestId = req.body.id;
@@ -68,7 +68,7 @@ router.patch('/authors/:id/avatar', cloudMulter.single('avatar'), async (req, re
     }
 
 });
-router.post('/authors', async (req, res, next) => {
+router.post('/api/authors', async (req, res, next) => {
     console.log("post authors ");
     const body = req.body;
     const password = req.body.password;
@@ -108,7 +108,7 @@ router.post('/authors', async (req, res, next) => {
     }
     
 });
-router.put('/authors/:id', async (req, res, next) => {
+router.put('/api/authors/:id', async (req, res, next) => {
     console.log("put authors/:id ");
     const {id} = req.params;
     const body = req.body;
@@ -128,7 +128,7 @@ router.put('/authors/:id', async (req, res, next) => {
     }
     
 });
-router.delete('/authors/:id', async (req, res, next) => {
+router.delete('/api/authors/:id', async (req, res, next) => {
     console.log("delete authors/:id ");
     const {id} = req.params;
     const userRequestId = req.body.id;
@@ -144,7 +144,7 @@ router.delete('/authors/:id', async (req, res, next) => {
     }
 });
 
-router.post('/login', async (req, res, next) => {
+router.post('/api/login', async (req, res, next) => {
     const {username, password} = req.body;
     try {
         const author = await Author.findOne({email: username});

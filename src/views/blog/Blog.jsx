@@ -23,7 +23,7 @@ const Blog = props => {
         },
     }
 
-    fetch(`http://localhost:3000/blogPosts/${id}`, headers).then(res=>res.json())
+    fetch(`/api/blogPosts/${id}`, headers).then(res=>res.json())
     .then(res=>{
       // reset
       if (res) {

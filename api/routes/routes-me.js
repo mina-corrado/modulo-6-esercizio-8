@@ -5,7 +5,7 @@ const router = express.Router();
 const Author = require('../models/Autore');
 
 
-router.get('/me', async (req, res) => {
+router.get('/api/me', async (req, res) => {
     const {id} = req.body.id;
     let result;
     try {
