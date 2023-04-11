@@ -39,7 +39,7 @@ const unless = (middleware, ...paths) => {
 
 app.use(logger);
 app.use(errorHandler);
-app.use(unless( auth, '/', '/login','/oauth/google', '/oauth/redirect/google', '/favicon.ico' ));
+app.use(unless( auth, '/', '/static', '/static/css', '/static/js', '/login','/oauth/google', '/oauth/redirect/google', '/favicon.ico' ));
 
 app.use(routesBlogPost);
 app.use(routesAutore);
