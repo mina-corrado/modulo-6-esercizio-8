@@ -10,7 +10,7 @@ const router = express.Router();
 passport.use(new GoogleStrategy({
         clientID: process.env['GOOGLE_CLIENT_ID'],
         clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-        callbackURL: '/oauth/redirect/google',
+        callbackURL: '/api/oauth/redirect/google',
         scope: ['profile', 'email']
     }, 
     async function verify (issuer, profile, next) {
