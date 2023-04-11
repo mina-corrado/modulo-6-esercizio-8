@@ -77,3 +77,5 @@ const start = async() => {
 
 //avvio
 start();
+
+module.exports = app;
